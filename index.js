@@ -20,111 +20,156 @@ const students = [
         marks: [10, 9, 8, 9]
     }
 ]
-//smith
-const arrSmithMarks = getArrSmithMarks(students)
-const averageSmithMarks = getAverageSmithMarks(arrSmithMarks)
-
-//doe
-
-const arrDoeMarks = getArrDoeMarks(students)
-const averageDoeMarks = getAveragDoehMarks(arrDoeMarks)
-
-
-//anderson
-
-const arrAndersonMarks = getArrAndersonMarks(students)
-const averageAndersonMarks = getAverageAndersonMarks(arrAndersonMarks)
-
-//zorg
-
-const arrZorgMarks = getArrZorgMarks(students)
-const averageZorgMarks = getAverageZorgMarks(arrZorgMarks)
-
 
 function averageStudentMark(id) {
-    if (id === 10) {
-        return averageSmithMarks
-    } else if (id === 11) {
-        return averageDoeMarks
-    } else if (id === 12) {
-        return averageAndersonMarks
-    } else if (id === 13) {
-        return averageZorgMarks
-    }
+    const studentMarksArr = students.find((student) => {
+        return student.id === id
+    }).marks
+    const studentMarcksAverage = studentMarksArr.reduce((accumulator, mark) => {
+        return accumulator + mark
+    })
+
+    return studentMarcksAverage / studentMarksArr.length
+
 }
+
+// console.log(averageStudentMark(13));
 
 
 function averageGroupMark(students) {
-    return (averageSmithMarks + averageDoeMarks + averageAndersonMarks + averageZorgMarks) / students.length 
+    let sumMarks = 0
+    for (i = 0; i < students.length; i++) {
+        sumMarks += students[i].marks.reduce((accumulator, mark) => {
+            return accumulator + mark
+        }) / students[i].marks.length
+
+
+    };
+    return sumMarks / students.length
 }
 
-//SMITH functions
-
-function getArrSmithMarks(students) {
-    return students.find((student) => {
-        return student.id === 10
-    }).marks
-}
-
-//console.log(arrSmithMarks);
-
-function getAverageSmithMarks(arrSmithMarks) {
-    return arrSmithMarks.reduce((accumulator, mark) => {
-        return accumulator + mark
-    }) / arrSmithMarks.length
-}
-// console.log(averageSmithMarks);
 
 
-//DOE functions
-function getArrDoeMarks(students) {
-    return students.find((student) => {
-        return student.id === 11
-    }).marks
-}
 
-function getAveragDoehMarks(arrDoeMarks) {
-    return arrDoeMarks.reduce((accumulator, mark) => {
-        return accumulator + mark
-    }) / arrDoeMarks.length
-}
-
-// console.log(arrDoeMarks);
-// console.log(averageDoeMarks);
+// console.log(averageGroupMark(students));
 
 
-//ANDERSON functions 
-function getArrAndersonMarks(students) {
-    return students.find((student) => {
-        return student.id === 12
-    }).marks
-}
-
-function getAverageAndersonMarks(arrAndersonMarks) {
-    return arrAndersonMarks.reduce((accumulator, mark) => {
-        return accumulator + mark
-    }) / arrAndersonMarks.length
-}
-
-// console.log(arrAndersonMarks);
-// console.log(averageAndersonMarks);
 
 
-//ZONG FUNCTIONS
-function getArrZorgMarks(students) {
-    return students.find((student) => {
-        return student.id === 13
-    }).marks
-}
 
-function getAverageZorgMarks(arrZorgMarks) {
-    return arrZorgMarks.reduce((accumulator, mark) => {
-        return accumulator + mark
-    }) / arrZorgMarks.length
-}
-// console.log(arrZorgMarks);
-// console.log(averageZorgMarks);
 
+
+
+
+
+
+
+
+
+// //smith
+// const arrSmithMarks = getArrSmithMarks(students)
+// const averageSmithMarks = getAverageSmithMarks(arrSmithMarks)
+
+// //doe
+
+// const arrDoeMarks = getArrDoeMarks(students)
+// const averageDoeMarks = getAveragDoehMarks(arrDoeMarks)
+
+
+// //anderson
+
+// const arrAndersonMarks = getArrAndersonMarks(students)
+// const averageAndersonMarks = getAverageAndersonMarks(arrAndersonMarks)
+
+// //zorg
+
+// const arrZorgMarks = getArrZorgMarks(students)
+// const averageZorgMarks = getAverageZorgMarks(arrZorgMarks)
+
+
+// function averageStudentMark(id) {
+//     if (id === 10) {
+//         return averageSmithMarks
+//     } else if (id === 11) {
+//         return averageDoeMarks
+//     } else if (id === 12) {
+//         return averageAndersonMarks
+//     } else if (id === 13) {
+//         return averageZorgMarks
+//     }
+// }
+
+
+// function averageGroupMark(students) {
+//     return (averageSmithMarks + averageDoeMarks + averageAndersonMarks + averageZorgMarks) / students.length
+// }
+
+// //SMITH functions
+
+// function getArrSmithMarks(students) {
+//     return students.find((student) => {
+//         return student.id === 10
+//     }).marks
+// }
+
+// //console.log(arrSmithMarks);
+
+// function getAverageSmithMarks(arrSmithMarks) {
+//     return arrSmithMarks.reduce((accumulator, mark) => {
+//         return accumulator + mark
+//     }) / arrSmithMarks.length
+// }
+// // console.log(averageSmithMarks);
+
+
+// //DOE functions
+// function getArrDoeMarks(students) {
+//     return students.find((student) => {
+//         return student.id === 11
+//     }).marks
+// }
+
+// function getAveragDoehMarks(arrDoeMarks) {
+//     return arrDoeMarks.reduce((accumulator, mark) => {
+//         return accumulator + mark
+//     }) / arrDoeMarks.length
+// }
+
+// // console.log(arrDoeMarks);
+// // console.log(averageDoeMarks);
+
+
+// //ANDERSON functions
+// function getArrAndersonMarks(students) {
+//     return students.find((student) => {
+//         return student.id === 12
+//     }).marks
+// }
+
+// function getAverageAndersonMarks(arrAndersonMarks) {
+//     return arrAndersonMarks.reduce((accumulator, mark) => {
+//         return accumulator + mark
+//     }) / arrAndersonMarks.length
+// }
+
+// // console.log(arrAndersonMarks);
+// // console.log(averageAndersonMarks);
+
+
+// //ZONG FUNCTIONS
+// function getArrZorgMarks(students) {
+//     return students.find((student) => {
+//         return student.id === 13
+//     }).marks
+// }
+
+// function getAverageZorgMarks(arrZorgMarks) {
+//     return arrZorgMarks.reduce((accumulator, mark) => {
+//         return accumulator + mark
+//     }) / arrZorgMarks.length
+// }
+// // console.log(arrZorgMarks);
+// // console.log(averageZorgMarks);
 
 
 
